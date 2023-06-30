@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>customer chrun prediction</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link id="pagestyle" rel="stylesheet" type="text/css" href="default.css">
+  <script>
+  function swapStyleSheet(sheet){
+      document.getElementById('pagestyle').setAttribute('href', sheet);
+  }
+  </script>
+</head>
+
+<body>
+ <!-- <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav> -->
+  <nav class="light-blue lighten-1" role="navigation">
+     <div class="nav-wrapper">
+         <a href="#" style="font-size: 25px; padding: 20px">churn prediction</a>
+        <!-- <a href="#"><img src="/Web-App/templates/1.jpg" alt="Logo" style="width:60px;height:60px;"></a>-->
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#footer">About</a></li>
+          <li><a href="#prediction">Prediction</a></li>
+          <li><a href="#visualization">Visualization</a></li>
+          <li><a href="#creditCard">credit card info</a></li>
+        </ul>
+      </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h2 class="header center orange-text">predicting churning of credit card customer</h2>
+      <div class="row center">
+        <h5 class="header col s12 light">new customer entry and prediction
+        <br>
+        </h5>
+      </div>
+
+              <div class="row">
+    <form action='/predict' method="post" class="col s12" id="prediction">
+      <div class="row">
+        <div class="input-field col s4">
+            <label for="first_name"><b>customer number</b></label>
+            <br>
+          <input placeholder="SO2 in μg/m3" name="SO2" id="first_name" type="text" class="validate">
+        </div>
+        <div class="input-field col s4">
+
+          <label for="last_name"><b>Nitrogen Dioxide(NO2)</b></label>
+            <br>
+          <input id="last_name" name="NO2" placeholder="NO2 in μg/m3"  type="text" class="validate">
+
+        </div>
+
+        <div class="input-field col s4">
+            <label for="_name"><b>Respirable Suspended Particualte Matter</b></label>
+            <br>
+          <input id="name2" name="RSPM" placeholder="RSPM in μg/m3" type="text" class="validate">
+
+        </div>
+
+        <div class="input-field col s4">
+            <label for="_name"><b>Suspended Particualte Matter</b></label>
+            <br>
+          <input id="_name" name="SPM" placeholder="SPM in μg/m3" type="text" class="validate">
+
+        </div>
+
+      </div>
+
+      <div class="row center">
+
+          <button type="submit" class="btn-large waves-effect waves-light orange">Predict</button>
+      </div>
+    </form>
+      </div>
+
+      <br>
+        {{pred}}<br>
+
+    </div>
+  </div>
+
+
+    <br><br>
+  <h3 class="header center light-blue-text" id="visualization">Data Visualization</h3>
+  <div class="graph" style="display:flex;justify-content:space-around;flex-wrap:wrap">
+    <div class="graph1">
+      <iframe src="https://public.tableau.com/views/Statewise-Data/Sheet1?:embed=y&:showVizHome=no" height="600" width="600" title=""></iframe>
+    </div>
+    <div class="graph2">
+      <iframe src="https://public.tableau.com/views/Citywise-Data/Citywise-Data?:embed=y&:showVizHome=no" height="600" width="600" title=""></iframe>
+    </div>
+    <div class="graph3">
+      <iframe src="https://public.tableau.com/views/Typewise-Data/Typewise-Data?:embed=y&:showVizHome=no" height="600" width="600" title=""></iframe>
+    </div>
+    </div>
+
+    <div id="select-box">
+      <input type="checkbox" id="options-view-button">
+      <div id="select-button" class="brd">
+        <div id="selected-value">
+          <span>Select a platform</span>
+        </div>
+        <div id="chevrons">
+          <i class="fas fa-chevron-up"></i>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      <div id="options">
+        <div class="option">
+          <input class="s-c top" type="radio" name="platform" value="codepen">
+          <input class="s-c bottom" type="radio" name="platform" value="codepen">
+          <i class="fab fa-codepen"></i>
+          <span class="label">sahil</span>
+          <span class="opt-val">monpara</span>
+        </div>
+        <div class="option">
+          <input class="s-c top" type="radio" name="platform" value="dribbble">
+          <input class="s-c bottom" type="radio" name="platform" value="dribbble">
+          
+          <span class="label">Dribbble</span>
+          <span class="opt-val">Dribbble</span>
+        </div>
+        <div class="option">
+          <input class="s-c top" type="radio" name="platform" value="behance">
+          <input class="s-c bottom" type="radio" name="platform" value="behance">
+          <i class="fab fa-behance"></i>
+          <span class="label">Behance</span>
+          <span class="opt-val">Behance</span>
+        </div>
+        <div class="option">
+          <input class="s-c top" type="radio" name="platform" value="hackerrank">
+          <input class="s-c bottom" type="radio" name="platform" value="hackerrank">
+          <i class="fab fa-hackerrank"></i>
+          <span class="label">HackerRank</span>
+          <span class="opt-val">HackerRank</span>
+        </div>
+        <div class="option">
+          <input class="s-c top" type="radio" name="platform" value="stackoverflow">
+          <input class="s-c bottom" type="radio" name="platform" value="stackoverflow">
+          <i class="fab fa-stack-overflow"></i>
+          <span class="label">StackOverflow</span>
+          <span class="opt-val">StackOverflow</span>
+        </div>
+        <div class="option">
+          <input class="s-c top" type="radio" name="platform" value="freecodecamp">
+          <input class="s-c bottom" type="radio" name="platform" value="freecodecamp">
+          <i class="fab fa-free-code-camp"></i>
+          <span class="label">FreeCodeCamp</span>
+          <span class="opt-val">FreeCodeCamp</span>
+        </div>
+        <div id="option-bg"></div>
+      </div>
+    </div>
+
+  <footer class="page-footer orange" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+  <h2>Javascript Change StyleSheet Without Page Reload</h2>
+  <button onclick="swapStyleSheet('dark.css')">Dark Style Sheet</button>
+  <button onclick="swapStyleSheet('blue.css')">Blue Style Sheet</button>
+  <button onclick="swapStyleSheet('default.css')">Default Style Sheet</button>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
